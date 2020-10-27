@@ -1,0 +1,29 @@
+*{
+    font-family: monospace;
+   
+}
+body{
+    background-image: url("backg.jpeg");
+    background-attachment: fixed;
+}
+h1{
+    text-align: center;
+    font-size: 60px;
+    color:#216E2B;
+}
+#form{
+    font-size: 25px;
+    position: absolute;
+    float: left;
+    left: 42.5%;
+}
+input{
+    width: 200px;
+    height: 25px;
+    border-radius: 4px;
+}
+#fp{
+    position: absolute;
+    float: left;
+    left: 44.5%;
+}

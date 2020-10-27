@@ -1,0 +1,76 @@
+h1{
+    text-align: center;
+    font-size: 60px;
+    color:#216E2B;
+}
+*{
+    font-family: monospace;
+   
+}
+body{
+    background-image: url("backg.jpeg");
+    background-attachment: fixed;
+}
+li {
+width: 16.6%;
+ float: left;
+    font-size: 18px;
+    font-weight: 900;
+   
+  }
+ul {
+    list-style-type: none;
+    
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#216E2B;
+    position: sticky;
+  
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+    
+}
+li a:hover{
+   background-color:#2B9B38  ;
+
+}
+.active{
+ background-color: #2B9B38 ;
+}
+#profilepic{
+    position: absolute;
+    float: left;
+    left: 44%;
+    width: 150px;
+    height: 150px;
+}
+#name{
+    position: absolute;
+float: left;
+left: 45%;  
+font-size: 25px; 
+}
+#phoneNum{
+    position: absolute;
+    float: left;
+    left: 44.5%;
+    font-size: 20px;
+}
+#num{
+    position: absolute;
+    float: left;
+    left: 48.5%;
+    font-size: 20px;
+}
+.changePassword{
+    position: absolute;
+    float: left;
+    left: 42%;
+}
