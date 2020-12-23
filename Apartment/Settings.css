@@ -1,0 +1,94 @@
+*{
+    font-family: monospace;
+   
+}
+li {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    
+   
+     
+    }
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+      background-color:#303F7C  ;
+      height: 100%;
+      width: 17%;
+      position: fixed;
+      float: left;
+      left: 0;
+    
+  }
+  li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px ;
+      padding-left: 0%;
+      text-decoration: none;
+      
+      
+  }
+  li a:hover{
+     background-color:#455490   ;
+  
+  }
+  .active{
+   background-color:#455490  ;
+     
+  }
+#profilepic{
+    position: absolute;
+    float: left;
+    left: 44%;
+    width: 150px;
+    height: 150px;
+}
+#name{
+    position: absolute;
+float: left;
+left: 45%;  
+font-size: 25px; 
+}
+#phoneNum{
+    position: absolute;
+    float: left;
+    left: 44.5%;
+    font-size: 20px;
+}
+#num{
+    position: absolute;
+    float: left;
+    left: 48.5%;
+    font-size: 20px;
+}
+.changePassword {
+    position: absolute;
+    float: left;
+    left: 42%;
+}
+.addMember{
+    position: absolute;
+    float: left;
+    left: 45.5%;
+}
+#welc{
+    position:fixed;
+    text-align: center;
+ 
+    font-size: 17px;
+  }
+  .col-md-8{
+    padding-top: 2%;
+  }
+   
+#pp{
+  height: 100px;
+  width: 100px;
+}

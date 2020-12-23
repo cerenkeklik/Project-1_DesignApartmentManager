@@ -27,3 +27,20 @@ input{
     float: left;
     left: 44.5%;
 }
+#logOutButton{
+    background-color: #216E2B;
+    position: absolute;
+    float: left;
+    left: 92.5%;
+    margin-top: 50px;
+    padding: 14px;
+    color: white;
+    font-weight: bold;
+    
+      }
+      #al{
+        position: absolute;
+        float: left;
+        left: 46%;
+padding-top: 40px;
+      }

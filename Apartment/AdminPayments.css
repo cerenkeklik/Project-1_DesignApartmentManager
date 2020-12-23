@@ -1,70 +1,92 @@
-h1{
-    text-align: center;
-    font-size: 60px;
-    color:#216E2B;
-}
+
 *{
     font-family: monospace;
    
 }
-body{
-    background-image: url("backg.jpeg");
-    background-attachment: fixed;
-}
+
 li {
-width: 16.6%;
- float: left;
-    font-size: 18px;
-    font-weight: 900;
-   
-  }
-ul {
-    list-style-type: none;
-    
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color:#216E2B;
-    position: sticky;
-  
-}
-li a {
-    display: block;
-    color: white;
+    font-size: 18px;
+    font-weight: 900;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
     
-    
-}
-li a:hover{
-   background-color:#2B9B38  ;
-
-}
-.active{
- background-color: #2B9B38 ;
-}
-table,tr,td{
-    border: 1px solid #216E2B;
-    text-align: center;
-    border-collapse: collapse;
    
-}
-table{
-  font-size: 15px;
-  font-weight: 800;
-    position: absolute;
-    float: left;
-    left: 7%;
-}
+     
+    }
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+      background-color:#303F7C  ;
+      height: 100%;
+      width: 17%;
+      position: fixed;
+      float: left;
+      left: 0;
+    
+  }
+  li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px ;
+      padding-left: 0%;
+      text-decoration: none;
+      
+      
+  }
+  li a:hover{
+     background-color:#455490   ;
+  
+  }
+  .active{
+   background-color:#455490  ;
+     
+  }
+
+
 
 #month{
     font-size: 30px;
-    text-align: center;
-}
-.update{
     position: absolute;
-    float:left;
-    left: 80%;
+    float: left;
+    left: 50%;
+    color: #303F7C;
+}
+.insert{
+    position: absolute;
+    left: 88%;
+    background-color:#5c69a0;
+    color: aliceblue;
+    text-decoration: none;
+    border: 1px solid;
+    display: inline-block;
+    padding: 10px;
+    margin-top: 40px;
+    
 
 }
+
+
+     
+      #welc{
+        position:fixed;
+        text-align: center;
+     
+        font-size: 17px;
+      }
+      .col-md-8{
+        padding-top: 2%;
+      }
+       
+    #pp{
+      height: 100px;
+      width: 100px;
+    }
+    .text{
+      position: absolute;
+    float: left;
+    left: 36%;
+    }

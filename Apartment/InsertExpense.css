@@ -1,0 +1,34 @@
+#submit{
+    position: absolute;
+    float: left;
+    left: 42.5%;
+    
+}
+.title{
+    text-align: center;
+    font-size: 35px;
+    color:#303F7C;
+    text-decoration:none;
+}
+.previousPage{
+    position: absolute;
+    float: left;
+    left: 42%;
+}
+.error{
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(256, 55,55);
+}
+.success{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(10, 161, 78);
+    text-align: center;
+}
+.fail{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(256, 55,55);
+}

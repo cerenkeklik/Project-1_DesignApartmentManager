@@ -1,0 +1,95 @@
+
+*{
+    font-family: monospace;
+   
+}
+li {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    
+   
+     
+    }
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+      background-color:#303F7C  ;
+      height: 100%;
+      width: 17%;
+      position: fixed;
+      float: left;
+      left: 0;
+    
+  }
+  li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px ;
+      padding-left: 0%;
+      text-decoration: none;
+      
+      
+  }
+  li a:hover{
+     background-color:#455490   ;
+  
+  }
+  #welc{
+    position:fixed;
+    text-align: center;
+ 
+    font-size: 17px;
+  }
+  .col-md-6{
+    padding-top: 5%;
+    
+  }
+   
+#pp{
+  height: 100px;
+  width: 100px;
+}
+.title{
+  font-size: 35px;
+  text-align: center;
+  color: #303F7C;
+}
+.error{
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(256, 55,55);
+}.success{
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(10, 161, 78);
+  text-align: center;
+}
+.fail{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(256, 55,55);
+}
+#form{
+  width: 40%;
+  position: absolute;
+  float: left;
+  left: 30%;
+}
+#submit{
+  position: absolute;
+  float: left;
+  left: 38%;
+  width: 25%;
+}
+.previousPage{
+  position: absolute;
+  float: left;
+  left: 42%;
+}

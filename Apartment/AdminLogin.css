@@ -27,3 +27,22 @@ input{
     float: left;
     left: 44.5%;
 }
+#welc{
+    position: absolute;
+    float: left;
+    left: 92.5%;
+      margin-top: 3px;
+     
+      font-size: 17px;
+  }
+  .error{
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(256, 55,55);
+}
+#al{
+    position: absolute;
+    float: left;
+    left: 46%;
+padding-top: 40px;
+  }
