@@ -14,6 +14,7 @@
     position: absolute;
     float: left;
     left: 42%;
+    padding-bottom: 20px;
 }
 .error{
     font-size: 14px;

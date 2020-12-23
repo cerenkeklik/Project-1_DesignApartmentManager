@@ -1,0 +1,17 @@
+.title{
+    text-align: center;
+    color: #455490;
+}
+#table{
+  text-align: center; 
+  width:60%;
+  position:absolute;
+  float:left;
+  left:21%;
+}
+.previousPage{
+  position: absolute;
+  float: left;
+  left: 42%;
+
+}

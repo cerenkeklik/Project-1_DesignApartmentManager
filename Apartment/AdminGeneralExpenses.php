@@ -64,19 +64,19 @@ session_start();
         <table class="table table-striped" style="width: 70%; position:absolute;float:left;left:23%;text-align:center; ">
           <tr>
 
-            <td> Month</td>
-            <td> Year</td>
-            <td>Cleaning</td>
-            <td>Repairing</td>
-            <td>Elevator</td>
-            <td>Gardening</td>
-            <td>Security</td>
-            <td>ManagerSalary</td>
-            <td>Bills</td>
-            <td>Extra</td>
-            <td>Total</td>
-            <td>Inserted Date</td>
-            <td>Delete</td>
+            <td class="blue"> Month</td>
+            <td class="blue"> Year</td>
+            <td class="blue">Cleaning</td>
+            <td class="blue">Repairing</td>
+            <td class="blue">Elevator</td>
+            <td class="blue">Gardening</td>
+            <td class="blue">Security</td>
+            <td class="blue">ManagerSalary</td>
+            <td class="blue">Bills</td>
+            <td class="blue">Extra</td>
+            <td class="blue">Total</td>
+            <td class="blue">Inserted Date</td>
+            <td class="blue">Delete</td>
           </tr>
 
           <?php $sql = "SELECT * FROM expenses ORDER BY Year DESC, Month DESC";
@@ -97,7 +97,7 @@ session_start();
               <td>$<?php echo $pull['Extra'] ?></td>
               <td>$<?php echo $pull['Total'];  ?></td>
               <td><?php echo $pull['Date'] ?></td>
-              <td><a href="deleteExpense.php?ID=<?php echo $pull['ID']; ?>" class="btn btn-danger btn-sm">X</button></td>
+              <td><a href="deleteExpense.php?ID=<?php echo $pull['ID']; ?>" onclick="return confirm('Are you sure you want to delete this expense?');" class="btn btn-danger btn-sm">X</button></td>
             </tr>
           <?php } ?>
 
@@ -112,12 +112,12 @@ session_start();
         <table class="table table-striped" style="width: 50%; position:absolute;float:left;left:32%;text-align:center; ">
           <tr>
 
-            <td>Month</td>
-            <td>Year</td>
-            <td>Name</td>
-            <td>File</td>
-            <td>Inserted Date</td>
-            <td>Delete</td>
+            <td class="blue">Month</td>
+            <td class="blue">Year</td>
+            <td class="blue">Name</td>
+            <td class="blue">File</td>
+            <td class="blue">Inserted Date</td>
+            <td class="blue">Delete</td>
           </tr>
 
           <?php
@@ -133,7 +133,7 @@ session_start();
               <td><?php echo $pull2['Name'] ?></td>
              <td ><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($pull2['File'] ).'" style="height:70px;width:70px;" id="image"/>';?></td>
              <td><?php echo $pull2['Date'] ?></td>
-             <td><a href="DeleteInvoice.php?ID=<?php echo $pull2['ID']; ?>" class="btn btn-danger btn-sm">X</button></td>
+             <td><a href="DeleteInvoice.php?ID=<?php echo $pull2['ID']; ?>" onclick="return confirm('Are you sure you want to delete this invoice?');" class="btn btn-danger btn-sm">X</button></td>
             </tr>
           <?php } ?>
 

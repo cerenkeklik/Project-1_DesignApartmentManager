@@ -7,9 +7,9 @@ if(!$_SESSION['username']){
 <?php }
 
 
-$id=$_GET['id'];
+$id=$_GET['ID'];
 
-$sql="DELETE FROM payments WHERE id='$id'" ;
+$sql="DELETE FROM payments WHERE ID='$id'" ;
 if($query=mysqli_query($conn,$sql)){
     header("Location:AdminPayments.php");
     exit;

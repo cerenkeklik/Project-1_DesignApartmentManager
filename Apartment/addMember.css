@@ -50,7 +50,8 @@ li {
     font-size: 18px;
     position: absolute;
     float: left;
-    left: 51%;
+    left: 35%;
+    width: 30%;
 }
 input{
     width: 200px;
@@ -86,4 +87,22 @@ p{
   height: 100px;
   width: 100px;
 }
-
+.success{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(10, 161, 78);
+    text-align: center;
+}
+.fail{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(256, 55,55);
+}
+.previousPage{
+    position: absolute;
+    float: left;
+    left: 41%;
+    padding-bottom: 40px;
+   
+}

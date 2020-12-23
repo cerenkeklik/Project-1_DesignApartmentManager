@@ -79,3 +79,20 @@ li {
   padding: 10px;
  
 }
+.previousMembers{
+  position: absolute;
+  left: 87.5%;
+  background-color:#5c69a0;
+  color: aliceblue;
+  text-decoration: none;
+  border: 1px solid;
+  display: inline-block;
+  padding: 10px;
+}
+#memberTitle{
+  position: absolute;
+  float: left;
+  left: 50%;
+  color: #303F7C;
+  font-size: 33px;
+}

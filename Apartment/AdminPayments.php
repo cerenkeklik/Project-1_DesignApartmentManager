@@ -61,15 +61,15 @@ session_start();
                 <br><br><br>
                 <p id="month">Payments</p>
                 <br><br><br>
-                <p class="text">(Apartment Number = 0 shows the price that you should pay in that month.)</p><br><br><br>
+                <p class="text" style="color:rgb(256, 55, 55)">(Apartment Number = 0 shows the price that you should pay in that month.)</p><br><br><br>
                 <table class="table table-striped" style="text-align: center;position:absolute;float:left;left:35%;width:40%; ">
                     <tr>
-                        <td>Apartment Number</td>
-                        <td>Price</td>
-                        <td>Month</td>
-                        <td>Year</td>
-                        <td>Inserted Date</td>
-                        <td>Delete</td>
+                        <td class="blue">Apartment Number</td>
+                        <td class="blue">Price</td>
+                        <td class="blue">Month</td>
+                        <td class="blue">Year</td>
+                        <td class="blue">Inserted Date</td>
+                        <td class="blue">Delete</td>
                     </tr>
                     <?php
 
@@ -78,20 +78,32 @@ session_start();
                     while ($pull = mysqli_fetch_array($query)) {
                     ?>
                         <tr>
-
+                        <?php if ($pull['apartmentID'] == 0) { ?>
+                            <td class="red"><?php echo $pull['apartmentID'] ?></td>
+                            <td class="red">$<?php echo $pull['price'] ?></td>
+                            <td class="red"><?php echo $pull['month']  ?></td>
+                            <td class="red"><?php echo $pull['year']  ?></td>
+                            <td class="red"><?php echo $pull['date']  ?></td>
+                            <?php if ($pull['apartmentID'] == 0) { ?>
+                                <td><a href="deletePayment.php?ID=<?php echo $pull['ID']; ?>" onclick="return confirm('Are you sure you want to delete this payment?');" class="btn btn-danger btn-sm">X</button></td>
+                            <?php } else { ?>
+                                <td>-</td>
+                            <?php } }
+                            else{
+                            ?>
                             <td><?php echo $pull['apartmentID'] ?></td>
                             <td>$<?php echo $pull['price'] ?></td>
                             <td><?php echo $pull['month']  ?></td>
                             <td><?php echo $pull['year']  ?></td>
                             <td><?php echo $pull['date']  ?></td>
                             <?php if ($pull['apartmentID'] == 0) { ?>
-                                <td><a href="deletePayment.php?id=<?php echo $pull['id']; ?>" class="btn btn-danger btn-sm">X</button></td>
+                                <td><a href="deletePayment.php?ID=<?php echo $pull['ID']; ?>" onclick="return confirm('Are you sure you want to delete this payment?');" class="btn btn-danger btn-sm">X</button></td>
                             <?php } else { ?>
                                 <td>-</td>
                             <?php } ?>
 
                         </tr>
-                    <?php }  ?>
+                    <?php } } ?>
 
 
 

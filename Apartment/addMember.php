@@ -97,18 +97,29 @@ session_start();
       } else {
         $whoseNumber = test_input($_POST['whoseNumber']);
       }
-      if ($maxID2++) {
-        echo "New member added.";
+      if (empty($_POST['month'])) {
+        $monthErr = "*Please choose a month";
+      } else {
+        $month = $_POST['month'];
+      }
+      if (empty($_POST['year'])) {
+        $yearErr = "*Please choose a year";
+      } else {
+        $year = $_POST['year'];
       }
     } else {
       "Please login first";
     }
-  }
+ 
 
-  $stmt = $conn->prepare("INSERT INTO members(apartmentID,fullname,username,password,phoneNumber,secondPhoneNumber,whoseNumber) VALUES (?,?,?,?,?,?,?)");
+  $stmt = $conn->prepare("INSERT INTO members(apartmentID,fullname,username,password,phoneNumber,month,year,secondPhoneNumber,whoseNumber) VALUES (?,?,?,?,?,?,?,?,?)");
   if ($stmt != false) {
-    $stmt->bind_param('sssssss', $apartmentID, $fullname, $uname, $pwd, $phoneNumber, $secondPhoneNumber, $whoseNumber);
-    $stmt->execute();
+    $stmt->bind_param('sssssssss', $apartmentID, $fullname, $uname, $pwd, $phoneNumber,$month,$year, $secondPhoneNumber, $whoseNumber);
+    if($stmt->execute()){
+      ?> <p class="success"><?php echo "Insertion successful"; ?></p> <?php
+   }else{
+      ?> <p class="fail"><?php echo "Insertion failed"; ?></p> <?php
+   }
     $stmt->close();
   } else {
     die('prepare() failed: ' . htmlspecialchars($conn->error));
@@ -119,76 +130,58 @@ session_start();
     <a id="loginn" href="GeneralLogin.html" title="generalLogin">Click to login</a>
   <?php
   }
+}
   ?>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2">
-        <ul>
-          <?php
-          if ($_SESSION['username']) {
-          ?>
-            <br>
-            <li>Welcome <?php echo $_SESSION['username'];
-                      } ?></li>
-            <br>
-            <li><img id="pp" src="roses.jpg"></img></li>
-            <br><br>
-            <li><a href="AdminHomePage.php">HomePage</a></li>
-            <li><a href="AdminMembers.php">Members</a></li>
-            <li><a href="AdminPayments.php">Payments</a></li>
-            <li><a href="AdminGeneralExpenses.php">General Expenses</a> </li>
-            <li><a href="AdminChat.php">Chat</a></li>
-            <li><a href="AdminSettings.php">Settings</a></li>
-            <li><a href="Adminlogout.php">LogOut</a></li>
-
-
-        </ul>
-      </div>
-
-      <div class="col-md-10"><br><br>
-        <p id="title">Add New Member</p><br>
+        <br><p id="title">Add New Member</p><br>
 
         <form id="form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-          <label for="apartmentID">Apartment ID</label><br>
-          <select name="apartmentID" id="apartmentID">
+  
+          <select class="form-control" name="apartmentID" id="apartmentID">
             <?php
-
+            $monthErr = $yearErr = ""; ?>
+            <option selected disabled>Apartment Number</option>
+            <?php
             for ($i = 1; $i < 17; $i++) { ?>
               <option value="<?php echo $i ?>"><?php echo $i ?></option>
             <?php } ?>
 
           </select>
           <span class="error"> <?php echo $apartmentIDErr, $apartmentIDErr2; ?></span><br><br>
-          <label for="fullname">Full name</label><br>
-          <input type="text" id="fullname" name="fullname" required>
+          <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name" required>
           <span class="error"> <?php echo $fullnameErr; ?></span><br><br>
-          <label for="username">Username</label><br>
-          <input type="text" id="uname" name="uname" required>
+          <input type="text" class="form-control" id="uname" name="uname" placeholder="Username" required>
           <span class="error"> <?php echo $unameErr; ?></span><br><br>
-          <label for="Password">Password</label><br>
-          <input type="password" id="pwd" name="pwd" required>
+          <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password" required>
           <span class="error"> <?php echo $pwdErr; ?></span><br><br>
-          <label for="phoneNumber">Phone number</label><br>
-          <input type="text" id="phoneNumber" name="phoneNumber" required>
-          <span class="error"> <?php echo $phoneNumberErr; ?></span><br><br>
-          <label for="secondPhoneNumber">Second phone number</label><br>
-          <input type="text" id="secondPhoneNumber" name="secondPhoneNumber" required>
+          <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
+          <span class="error"> <?php echo $phoneNumberErr; ?></span>
+          <span class="error"> <?php echo $phoneNumberErr2; ?></span><br><br>
+
+          <select class="form-control" name="month" class="form-control" required>
+            <option disabled selected>Month</option>
+            <?php for ($i = 1; $i < 13; $i++) { ?>
+              <option><?php echo $i ?></option>
+            <?php } ?>
+          </select>
+          <span class="error"> <?php echo $monthErr; ?></span><br><br>
+
+          <select class="form-control" name="year" class="form-control" required>
+            <option disabled selected>Year</option>
+            <?php for ($i = 2000; $i < 2050; $i++) { ?>
+              <option><?php echo $i ?></option>
+            <?php } ?>
+          </select>
+          <span class="error"> <?php echo $yearErr; ?></span><br><br>
+          <input class="form-control" type="text" id="secondPhoneNumber" name="secondPhoneNumber" placeholder="Second Phone Number" required>
           <span class="error"> <?php echo $secondPhoneNumberErr; ?></span><br><br>
-          <label for="whoseNumber">Whose phone number? </label><br>
-          <input type="text" id="whoseNumber" name="whoseNumber" required>
+          <input class="form-control" type="text" id="whoseNumber" name="whoseNumber" placeholder="Owner Of The Second Phone Number" required>
           <span class="error"> <?php echo $whoseNumberErr; ?></span><br><br>
-          <input type="submit" value="Add" name="submit">
+          <input class="form-control" type="submit" value="Add" name="submit">
         </form>
-
-      </div>
-    </div>
-  </div>
-
-
-
-
-
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <a href="AdminMembers.php" class="previousPage" >Click to return to previous page.</a>
+        
+        
 </body>
-
 </html>
