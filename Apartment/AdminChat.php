@@ -5,6 +5,7 @@ session_start();
 <!DOCTYPE html>
 <head>
     <title>Requests/Chat</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
 <?php include "Chat.css";
       include "Chat.js" ;
@@ -17,7 +18,8 @@ session_start();
       ?>
 </style>
     </head>
-    <?php
+<body>
+<?php
     if(!$_SESSION['username']){
     echo "Please login first.";
     ?>
@@ -47,42 +49,68 @@ if($_SESSION['username']){
   
  
 </ul></div>
+<?php
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+ date_default_timezone_set('Europe/Istanbul');
+ $date = date("Y-m-d h:i:sa");
+ $username = $_SESSION['username'];
+ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   if(!empty($_POST['text'])){
+ $text=test_input($_POST['text']);
+   }
+ }
+
+ $stmt = $conn->prepare("INSERT INTO chat(username,message,time) VALUES (?,?,?)");
+        if ($stmt != false) {
+            $stmt->bind_param('sss',$username, $text, $date);
+          $stmt->execute();
+         
+            $stmt->close();
+        } else {
+            die('prepare() failed: ' . htmlspecialchars($conn->error));
+        }
+    
+
+        $sql3= "SELECT MAX(id) FROM chat";
+        $query3=mysqli_query($conn, $sql3);
+        $pull3 = mysqli_fetch_array($query3);
+        $maxid = $pull3[0];
+       
+        ?>
 
   <div class="col-md-10"><br><br>
-  <form>
-        <h2 style=" text-decoration: underline;" >Requests/Complaint Chat</h2>
-        <br><br><br>
-        <p id="ent" style="text-align: center;"  ></p>
-        <br><br><br>
-     <textarea name="announc" rows= "5" cols="80" ></textarea>
-    </form>
+  
+  <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <h2 style="color:#455490;" >Requests/Complaint Chat</h2><br><br>
+        <div class="w3-container">
+       <?php 
+   $sql2 = "SELECT * FROM chat ORDER BY id DESC LIMIT 5";
+   $query2 = mysqli_query($conn, $sql2);
+   while($pull2 = mysqli_fetch_array($query2)){ ?>
+  <p> <?php  echo $pull2['username'] ?>: <?php echo $pull2['message']; ?>(<?php echo $pull2['time']; ?>) </p> <br>
+     <?php
+   }
+   
+  ?>
+        </div>
+  <br><br>
+  <div class="w3-container">
+      <textarea class="form-control" name="text" style="width: 50%;height:15%;position:absolute;float:left;left:33.5%" required></textarea>
+    
      <br><br><br><br><br><br>
-     <button type="button" onclick="" >Publish!</button>
-     <script>  
-        var d = new Date();
-           d.setHours(17);
-           d.setDate(26);
-       document.getElementById("ent").innerHTML="John Doe:" +"Can you talk with cleaning company about their cleaning property? " + "(Written at :" +d +")";
-</script>
+     <input type="submit" name="Submit" value="Send!" style="position: absolute;float:left;left:55.5%">
+  </div>
+     </form>
 </div></div>
 </div>
 </div>
-
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -8,7 +8,7 @@ session_start();
   <link rel="stylesheet" href="InsertInvoice.css">
   <style>
     <?php
-    include "InsertInvoice.css";
+    include "InsertMemberInvoice.css";
     include "bootstrap.min.css";
     include "popper.js";
     include "bootstrap.min.js";
@@ -48,7 +48,7 @@ session_start();
     date_default_timezone_set('Europe/Istanbul');
     $date = date("Y-m-d h:i:sa");
 
-$apartmentID = 0;
+$apartmentID = $_SESSION['apartmentID'];
     $stmt = $conn->prepare("INSERT INTO invoices(apartmentID,Month,Year,Name,Date,File) VALUES (?,?,?,?,?,?)");
     if ($stmt != false) {
       $stmt->bind_param('ssssss',$apartmentID, $fileMonth, $fileYear, $Name,$date, $img);
@@ -67,7 +67,7 @@ $apartmentID = 0;
   <br>
   <h2 class="title">Add New Invoice</h2><br><br>
   <form method="POST" id="submit" enctype="multipart/form-data">
-
+  <input class="form-control" id="disabledInput" type="text" placeholder="<?php echo $_SESSION['apartmentID'] ?>" disabled checked><br><br>
     <select name="month" class="form-control" required>
       <option disabled selected>Month</option>
       <?php for ($i = 1; $i < 13; $i++) { ?>
@@ -86,7 +86,7 @@ $apartmentID = 0;
     <input name="fileName" type="file" class="form-control-file" id="exampleFormControlFile1" required><br><br>
     <input type="submit" name="Submit">
   </form>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <a href="AdminGeneralExpenses.php" class="previousPage" >Click to return to previous page.</a>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <a href="Payments.php" class="previousPage" >Click to return to previous page.</a>
 </body>
 </html>

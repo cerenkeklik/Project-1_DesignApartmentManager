@@ -47,8 +47,8 @@ if($_SESSION['username']){
    <li><img  id="pp" src="roses.jpg"></img></li>
    <br><br>
    <li><a href="HomePage.php">HomePage</a></li>
-   <li><a  href="AdminMembers.php">Members</a></li>
-   <li><a class="active" href="Payments.php">Payments</a></li>
+   <li><a class="active" href="Members.php">Members</a></li>
+   <li><a  href="Payments.php">Payments</a></li>
    <li><a href="GeneralExpenses.php">General Expenses</a> </li>
    <li><a href="Chat.php">Chat</a></li>
    <li><a href="Settings.php">Settings</a></li>
@@ -56,65 +56,29 @@ if($_SESSION['username']){
   
 </ul></div>
 <div class="col-md-10"><br><br>
-<h2 style="text-align: center;">Members</h2>
+<h2 >Members</h2>
 <br><br>
-<table class="table table-striped" style="text-align: center;">
+<table class="table table-striped" style="text-align: center; width:60%;position:absolute;float:left;left:28%;">
 <tr>
-    <td>Apartment Number</td>
-    <td>Full Name(1)</td>
-    <td>Phone Number(2)</td>
+    <td style="color: #455490;">Apartment Number</td>
+    <td style="color: #455490;">Full Name</td>
+    <td style="color: #455490;">Phone Number</td>
+    <td style="color: #455490;">Moving Date</td>
 </tr>
-<tr>
-    <td>01</td>
-    <td>John Doe</td>
-    <td>555 555 55 55</td>
+<?php
+$sql = "SELECT * FROM members ORDER BY apartmentID ASC";
+$query=mysqli_query($conn,$sql);
+              while($pull=mysqli_fetch_array($query)) {
+              ?>
+              <tr>
+              <td><?php echo $pull['apartmentID']; ?></td>
+              <td><?php echo $pull['fullname']; ?></td>
+              <td><?php echo $pull['phoneNumber']; ?></td>
+              <td><?php echo $pull['month']; ?>/<?php echo $pull['year']; ?></td>
+              
+              </tr>
+              <?php } ?>
 
-</tr>
-<tr>
-    <td>02</td>
-    <td>John Doe</td>
-    <td>555 555 55 55</td>
-</tr>
-<tr>
-    <td>03</td>
-    <td>John Doe</td>
-    <td>555 555 55 55</td>
-</tr>
-<tr>
-    <td>04</td>
-    <td>John Doe</td>
-    <td>555 555 55 55</td>
-</tr>
-<tr>
-    <td>05</td>
-    <td>John Doe</td>
-    <td>555 555 55 55</td>
-</tr>
-<tr>
-    <td>06</td>
-    <td>John Doe</td>
-    <td>555 555 55 55</td>
-</tr>
-<tr>
-    <td>07</td>
-    <td>John Doe</td>
-    <td>555 555 55 55</td>
-</tr>
-<tr>
-    <td>08</td>
-    <td>John Doe</td>
-    <td>555 555 55 55</td>
-</tr>
-<tr>
-    <td>09</td>
-    <td>John Doe</td>
-    <td>555 555 55 55</td>
-</tr>
-<tr>
-    <td>10</td>
-    <td>John Doe</td>
-    <td>555 555 55 55</td>
-</tr>
 
 </table>
 

@@ -43,11 +43,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
        while( $row=mysqli_fetch_assoc($result)){
             $dbUsername = $row['username'];
             $dbPassword = $row['password'];
+            $apartmentID = $row['apartmentID'];
        
             if($uname == $dbUsername && $pwd == $dbPassword){
 
               $_SESSION['username']= $dbUsername;
               $_SESSION['password']= $dbPassword;
+              $_SESSION['apartmentID']= $apartmentID;
               $_SESSION['loggedIn'] = true;
 
                 header("Location: AdminHomePage.php");  

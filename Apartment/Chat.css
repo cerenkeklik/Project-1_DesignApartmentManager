@@ -44,10 +44,7 @@ li {
    background-color:#455490  ;
      
   }
-textarea{
-    position: absolute;
-    left: 35%;
- }
+
  h2{
     font-size: 30px;
     text-align: center;
@@ -69,4 +66,9 @@ button{
 #pp{
   height: 100px;
   width: 100px;
+}
+p{
+  position: absolute;
+  float: left;
+  left: 35%;
 }
