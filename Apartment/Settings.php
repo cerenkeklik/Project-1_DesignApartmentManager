@@ -26,6 +26,12 @@ session_start();
     <a id="loginn" href="GeneralLogin.html" title="generalLogin">Click to login</a>
     <?php
 }
+
+$un=$_SESSION['username'];
+  $sql = "SELECT * FROM members where username='$un' ";
+  $query = mysqli_query($conn, $sql);
+
+ $pull= mysqli_fetch_array($query);
 ?>
 
 <div class="container-fluid">
@@ -34,11 +40,9 @@ session_start();
   <?php 
 if($_SESSION['username']){ 
 ?>  
-<br>
+<br><br>
      <li>Welcome <?php echo $_SESSION['username'];} ?></li>
-   <br>
-   <li><img  id="pp" src="roses.jpg"></img></li>
-   <br><br>
+   <br><br><br>
    <li><a href="HomePage.php">HomePage</a></li>
    <li><a href="Members.php">Members</a></li>
    <li><a href="Payments.php">Payments</a></li>
@@ -51,27 +55,30 @@ if($_SESSION['username']){
 </ul></div>
 
   <div class="col-md-10"><br><br>
-  <img id="profilepic" src="roses.jpg" alt="profilepic">
-        <br><br><br><br><br><br><br><br><br><br><br><br>
-        <h2 id="name">John Doe</h2>
-        <br><br><br>
-        <p id="num">01</p>
-        <br><br>
-        <p id="phoneNum">555 555 55 55</p>
-        <br><br><br><br>
-        <a class="changePassword" href="changePassword" >I want to change my password.</a>
+  <br><br>
+
+<table  style="width: 30%;position:absolute;float:left;left:42%;text-align:center;height:50%;font-size:20px;">
+
+<tr>
+  <td><?php echo $pull['fullname'] ?></td>
+</tr>
+<tr>
+ <td>Apartment Number: <?php echo $pull['apartmentID'] ?></td>
+</tr>
+<tr>
+ <td>Phone Number: <?php echo $pull['phoneNumber'] ?></td>
+</tr>
+
+
+<?php ?>
+</table>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<a class="changePassword" href="updateInfo.php" >I want to change my informations.</a>
+  
+        
 </div>
 </div>
 </div>
-       >
-
-
-
-
-
-
-
-
-
+       
 </body>
 </html>

@@ -69,10 +69,15 @@ font-size: 25px;
     left: 48.5%;
     font-size: 20px;
 }
-.changePassword {
+.changeSettings{
     position: absolute;
     float: left;
-    left: 42%;
+    left: 48%;
+}
+.changePhoto {
+    position: absolute;
+    float: left;
+    left: 48%;
 }
 .addMember{
     position: absolute;

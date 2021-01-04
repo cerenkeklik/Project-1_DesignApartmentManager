@@ -2,34 +2,33 @@
     font-family: monospace;
    
 }
-body{
-    background-image: url("backg.jpeg");
-    background-attachment: fixed;
-}
+
 #adminLoginButton{
-    background-color: #216E2B;
+    background-color: #455490;
     position: absolute;
     float: left;
     left: 52%;
-    margin-top: 150px;
+    margin-top: 170px;
     padding: 30px;
     color: white;
     font-weight: bold;
     font-size: 50px;
+    text-decoration: none;
 }
 #loginButton {
-    background-color: #216E2B;
+    background-color: #455490;
     position: absolute;
     float: left;
     left: 23%;
-    margin-top:150px;
+    margin-top:170px;
     padding: 30px;
     color: white;
     font-weight: bold;
     font-size: 50px;
+    text-decoration: none;
 }
 h1{
     text-align: center;
     font-size: 60px;
-    color:#216E2B;
+    color:#455490;
 }

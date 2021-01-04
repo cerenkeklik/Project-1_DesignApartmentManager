@@ -28,6 +28,11 @@ session_start();
         <a id="loginn" href="GeneralLogin.html" title="generalLogin">Click to login</a>
     <?php
     }
+    $un=$_SESSION['username'];
+    $sqlphoto = "SELECT * FROM admin where username='$un' ";
+    $queryphoto = mysqli_query($conn, $sqlphoto);
+  
+   $pullphoto= mysqli_fetch_array($queryphoto);
     ?>
 
     <div class="container-fluid">
@@ -37,12 +42,10 @@ session_start();
                     <?php
                     if ($_SESSION['username']) {
                     ?>
-                        <br>
+                        <br><br>
                         <li>Welcome <?php echo $_SESSION['username'];
                                 } ?></li>
-                        <br>
-                        <li><img id="pp" src="roses.jpg"></img></li>
-                        <br><br>
+                        <br><br><br>
                         <li><a href="AdminHomePage.php">HomePage</a></li>
                         <li><a href="AdminMembers.php">Members</a></li>
                         <li><a class="active" href="AdminPayments.php">Payments</a></li>

@@ -26,6 +26,11 @@ session_start();
     <a id="loginn" href="GeneralLogin.html" title="generalLogin">Click to login</a>
     <?php
 }
+$un=$_SESSION['username'];
+$sqlphoto = "SELECT * FROM admin where username='$un' ";
+$queryphoto = mysqli_query($conn, $sqlphoto);
+
+$pullphoto= mysqli_fetch_array($queryphoto);
 ?>
 
 <div class="container-fluid">
@@ -34,11 +39,9 @@ session_start();
   <?php 
 if($_SESSION['username']){ 
 ?>  
-<br>
+<br><br>
      <li>Welcome <?php echo $_SESSION['username'];} ?></li>
-   <br>
-   <li><img  id="pp" src="roses.jpg"></img></li>
-   <br><br>
+   <br><br><br>
    <li><a  href="AdminHomePage.php">HomePage</a></li>
    <li><a href="AdminMembers.php">Members</a></li>
    <li><a href="AdminPayments.php">Payments</a></li>
@@ -94,7 +97,7 @@ function test_input($data)
    $sql2 = "SELECT * FROM chat ORDER BY id DESC LIMIT 5";
    $query2 = mysqli_query($conn, $sql2);
    while($pull2 = mysqli_fetch_array($query2)){ ?>
-  <p> <?php  echo $pull2['username'] ?>: <?php echo $pull2['message']; ?>(<?php echo $pull2['time']; ?>) </p> <br>
+  <p><strong> <?php  echo $pull2['username'] ?>:</strong> <?php echo $pull2['message']; ?>(<?php echo $pull2['time']; ?>) </p> <br>
      <?php
    }
    
@@ -108,6 +111,8 @@ function test_input($data)
      <input type="submit" name="Submit" value="Send!" style="position: absolute;float:left;left:55.5%">
   </div>
      </form>
+     <br><br><br>
+     <a style="position:absolute;float:left;left:49.5%;" href="allMessages.php" >Click to see all messages.</a>
 </div></div>
 </div>
 </div>
