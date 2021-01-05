@@ -8,7 +8,7 @@ session_start();
     <title>Nature Apartment-General Expenses</title>
     <style>
         <?php include "GeneralExpenses.css";
-        include "GeneralExpenses.js";
+       
         include "bootstrap.min.css";
         include "popper.js";
         include "bootstrap.min.js";

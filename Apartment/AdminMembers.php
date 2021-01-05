@@ -8,7 +8,7 @@ session_start();
     <link rel="stylesheet" href="AdminMembers.css">
     <style>
 <?php include "AdminMembers.css";
-      include "AdminMembers.js" ;
+     
       include "bootstrap.min.css";
       include "popper.js";
       include "bootstrap.min.js";

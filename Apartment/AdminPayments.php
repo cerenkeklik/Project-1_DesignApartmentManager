@@ -9,7 +9,7 @@ session_start();
     <title>Payments</title>
     <style>
         <?php include "AdminPayments.css";
-        include "AdminPayments.js";
+        
         include "bootstrap.min.css";
         include "popper.js";
         include "bootstrap.min.js";

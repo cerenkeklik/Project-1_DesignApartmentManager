@@ -8,7 +8,7 @@ session_start();
     <title>Members</title>
     <link rel="stylesheet" href="Members.css">
 <link rel="stylesheet" href="bootstrap.min.css">
-<script type="text/javascript" src="Members.js"></script>
+
 <script type="text/javascript" src="popper.js"></script>
 <script type="text/javascript" src="bootstrap.min.js"></script>
 <script type="text/javascript" src="jquery.js"></script>

@@ -11,7 +11,7 @@ session_start();
   <title>Payments</title>
   <style>
     <?php include "Payments.css";
-    include "Payments.js";
+    
     include "bootstrap.min.css";
     include "popper.js";
     include "bootstrap.min.js";

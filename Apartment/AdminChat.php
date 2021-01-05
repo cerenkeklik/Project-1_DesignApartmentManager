@@ -8,7 +8,6 @@ session_start();
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
 <?php include "Chat.css";
-      include "Chat.js" ;
       include "bootstrap.min.css";
       include "popper.js";
       include "bootstrap.min.js";

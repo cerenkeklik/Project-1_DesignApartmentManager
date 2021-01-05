@@ -7,7 +7,7 @@ session_start();
     <title>Settings</title>
     <style>
 <?php include "Settings.css";
-      include "Settings.js" ;
+      
       include "bootstrap.min.css";
       include "popper.js";
       include "bootstrap.min.js";

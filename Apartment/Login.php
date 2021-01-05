@@ -8,7 +8,7 @@ session_start();
     <title>Nature Apartment-Login</title>
     <style>
   <?php include "Login.css";
-      include "Login.js" ?>
+     ?>
       
 </style>
 </head>
