@@ -124,7 +124,7 @@ session_start();
           </tr>
 
           <?php
-          $sql2 = "SELECT * FROM invoices ORDER BY Year DESC, Month DESC";
+          $sql2 = "SELECT * FROM invoices WHERE apartmentID='0' ORDER BY Year DESC, Month DESC";
           $query2 = mysqli_query($conn, $sql2);
           
           while ($pull2 = mysqli_fetch_array($query2)) {

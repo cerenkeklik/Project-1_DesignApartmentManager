@@ -28,11 +28,11 @@ session_start();
         <a id="loginn" href="GeneralLogin.html" title="generalLogin">Click to login</a>
     <?php
     }
-    $un=$_SESSION['username'];
+    $un = $_SESSION['username'];
     $sqlphoto = "SELECT * FROM admin where username='$un' ";
     $queryphoto = mysqli_query($conn, $sqlphoto);
-  
-   $pullphoto= mysqli_fetch_array($queryphoto);
+
+    $pullphoto = mysqli_fetch_array($queryphoto);
     ?>
 
     <div class="container-fluid">
@@ -81,36 +81,76 @@ session_start();
                     while ($pull = mysqli_fetch_array($query)) {
                     ?>
                         <tr>
-                        <?php if ($pull['apartmentID'] == 0) { ?>
-                            <td class="red"><?php echo $pull['apartmentID'] ?></td>
-                            <td class="red">$<?php echo $pull['price'] ?></td>
-                            <td class="red"><?php echo $pull['month']  ?></td>
-                            <td class="red"><?php echo $pull['year']  ?></td>
-                            <td class="red"><?php echo $pull['date']  ?></td>
                             <?php if ($pull['apartmentID'] == 0) { ?>
-                                <td><a href="deletePayment.php?ID=<?php echo $pull['ID']; ?>" onclick="return confirm('Are you sure you want to delete this payment?');" class="btn btn-danger btn-sm">X</button></td>
-                            <?php } else { ?>
-                                <td>-</td>
-                            <?php } }
-                            else{
-                            ?>
-                            <td><?php echo $pull['apartmentID'] ?></td>
-                            <td>$<?php echo $pull['price'] ?></td>
-                            <td><?php echo $pull['month']  ?></td>
-                            <td><?php echo $pull['year']  ?></td>
-                            <td><?php echo $pull['date']  ?></td>
-                            <?php if ($pull['apartmentID'] == 0) { ?>
-                                <td><a href="deletePayment.php?ID=<?php echo $pull['ID']; ?>" onclick="return confirm('Are you sure you want to delete this payment?');" class="btn btn-danger btn-sm">X</button></td>
-                            <?php } else { ?>
-                                <td>-</td>
-                            <?php } ?>
+                                <td class="red"><?php echo $pull['apartmentID'] ?></td>
+                                <td class="red">$<?php echo $pull['price'] ?></td>
+                                <td class="red"><?php echo $pull['month']  ?></td>
+                                <td class="red"><?php echo $pull['year']  ?></td>
+                                <td class="red"><?php echo $pull['date']  ?></td>
+                                <?php if ($pull['apartmentID'] == 0) { ?>
+                                    <td><a href="deletePayment.php?ID=<?php echo $pull['ID']; ?>" onclick="return confirm('Are you sure you want to delete this payment?');" class="btn btn-danger btn-sm">X</button></td>
+                                <?php } else { ?>
+                                    <td>-</td>
+                                <?php }
+                            } else {
+                                ?>
+                                <td><?php echo $pull['apartmentID'] ?></td>
+                                <td>$<?php echo $pull['price'] ?></td>
+                                <td><?php echo $pull['month']  ?></td>
+                                <td><?php echo $pull['year']  ?></td>
+                                <td><?php echo $pull['date']  ?></td>
+                                <?php if ($pull['apartmentID'] == 0) { ?>
+                                    <td><a href="deletePayment.php?ID=<?php echo $pull['ID']; ?>" onclick="return confirm('Are you sure you want to delete this payment?');" class="btn btn-danger btn-sm">X</button></td>
+                                <?php } else { ?>
+                                    <td>-</td>
+                                <?php } ?>
 
                         </tr>
-                    <?php } } ?>
+                <?php }
+                        } ?>
 
 
 
                 </table>
+
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <p id="month">Invoices</p>
+                <br><br><br><br>
+                <table class="table table-striped" style="text-align: center;position:absolute;float:left;left:35%;width:40%; ">
+                    <tr>
+                        <td class="blue">Apartment Number</td>
+                        <td class="blue">Month</td>
+                        <td class="blue">Year</td>
+                        <td class="blue">Name</td>
+                        <td class="blue">Image</td>
+                        <td class="blue">Date</td>
+                        <td class="blue">Delete</td>
+                    </tr>
+
+                    <?php
+                    $sql2 = "SELECT * FROM invoices WHERE apartmentID!='0' ORDER BY Year DESC, Month DESC";
+                    $query2 = mysqli_query($conn, $sql2);
+
+                    while ($pull2 = mysqli_fetch_array($query2)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $pull2['apartmentID'] ?></td>
+                            <td><?php echo $pull2['Month'] ?></td>
+                            <td><?php echo $pull2['Year'] ?></td>
+                            <td><?php echo $pull2['Name'] ?></td>
+                            <td><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($pull2['File']) . '" style="height:70px;width:70px;" id="image"/>'; ?></td>
+                            <td><?php echo $pull2['Date'] ?></td>
+                            <td><a href="DeleteInvoice.php?ID=<?php echo $pull2['ID']; ?>" onclick="return confirm('Are you sure you want to delete this invoice?');" class="btn btn-danger btn-sm">X</button></td>
+                        </tr>
+                    <?php } ?>
+                </table>
+
+
+
+
+
+
+
                 <br><br><br>
 
             </div>

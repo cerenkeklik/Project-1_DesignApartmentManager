@@ -4,46 +4,53 @@ document.addEventListener('DOMContentLoaded', function () {
     initialView: 'dayGridMonth',
     selectable: true,
     editable: true,
-    eventLimit:true,
+    eventLimit: true,
 
     events: "getEvents.php",
-    
-    
+
+
     dateClick: function (info) {
       date = info.dateStr;
 
       var title = prompt("Please enter your event :");
 
-      calendar.addEvent({
-        title: title,
-        date: date,
-        allDay: true
-      });
 
-      $.ajax({
-        url: 'addEvents.php',
-        type: "POST",
-        data: { title: title, date: date },
-       
-      });
-      calendar.fullCalendar('unselect');
+      if (title != null) {
+        calendar.addEvent({
+          title: title,
+          date: date,
+          allDay: true
+        });
+        $.ajax({
+          url: 'addEvents.php',
+          type: "POST",
+          data: { title: title, date: date },
+          success: function () {
+
+            calendar.fullCalendar('rerenderEvents');
+          }
+        });
+
+      }
     },
-   
-    eventClick: function (info) {
 
+    eventClick: function (events) {
+      
       $.ajax({
-        url: 'deleteEvents.php',
-       
+        url: "deleteEvents.php",
+        type: "POST",
+      
+
+        success: function () {
+
+          events.event.remove();
+          alert("Deleted Successfully");
+
+        }
       });
-      calendar.fullCalendar('unselect');
-    }
-  
-   
+    },
   }
- 
   );
-
-
   calendar.render();
 });
 

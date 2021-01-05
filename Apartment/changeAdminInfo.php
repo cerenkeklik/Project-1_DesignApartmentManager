@@ -40,7 +40,7 @@ if (!$_SESSION['username']) {
 <?php
 if(isset($_POST['submit'])){
   $_SESSION['username']=$username;
-$stmt = $conn->prepare("UPDATE admin SET fullname=?, username=? ,password=? ,phoneNumber=? WHERE id=2");
+$stmt = $conn->prepare("UPDATE admin SET fullname=?, username=? ,password=? ,phoneNumber=? WHERE id=1");
 if ($stmt != false) {
     $stmt->bind_param('ssss',$fullname,$username,$password,$phoneNumber);
    $stmt->execute();

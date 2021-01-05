@@ -33,6 +33,7 @@ session_start();
   $queryphoto = mysqli_query($conn, $sqlphoto);
 
  $pullphoto= mysqli_fetch_array($queryphoto);
+ $aptID=0;
     ?>
 
     <div class="container-fluid">
@@ -76,7 +77,8 @@ session_start();
                         <td style="color: #455490;">Total</td>
                         <td style="color: #455490;">Inserted Date</td>
                     </tr>
-                    <?php $sql = "SELECT * FROM expenses ORDER BY Year DESC, Month DESC";
+                    
+                    <?php $sql = "SELECT * FROM expenses  ORDER BY Year DESC, Month DESC";
                     $query = mysqli_query($conn, $sql);
                     while ($pull = mysqli_fetch_array($query)) {
                     ?>
@@ -112,7 +114,7 @@ session_start();
                     </tr>
 
                     <?php
-                    $sql2 = "SELECT * FROM invoices ORDER BY Year DESC, Month DESC";
+                    $sql2 = "SELECT * FROM invoices WHERE apartmentID='0' ORDER BY Year DESC, Month DESC";
                     $query2 = mysqli_query($conn, $sql2);
 
                     while ($pull2 = mysqli_fetch_array($query2)) {
